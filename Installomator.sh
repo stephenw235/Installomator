@@ -12,7 +12,8 @@ label="" # if no label is sent to the script, this will be used
 #    Armin Briegel - @scriptingosx
 #    Isaac Ordonez - @issacatmann
 #    Søren Theilgaard - @Theile
-#    Adam Codega - @acodega
+#    Adam 
+ga - @acodega
 #
 # with contributions from many others
 
@@ -1490,7 +1491,11 @@ code42)
     # credit: Isaac Ordonez, Mann consulting (@mannconsulting)
     name="Code42"
     type="pkgInDmg"
-    downloadURL=https://download.code42.com/installs/agent/latest-mac.dmg
+    if [[ $(arch) == "arm64" ]]; then
+        downloadURL="https://download.code42.com/installs/agent/latest-mac-arm64.dmg"
+    elif [[ $(arch) == "i386" ]]; then
+        downloadURL="https://download.code42.com/installs/agent/latest-mac.dmg"
+    fi
     expectedTeamID="9YV9435DHD"
     blockingProcesses=( NONE )
     ;;
